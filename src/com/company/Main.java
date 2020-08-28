@@ -17,8 +17,8 @@ public class Main {
             // DoB
             // Address
 
-        Address address = new Address(7100, "Shoreline ave",
-                1200, "San Diego", "CA", 92100);
+        Address address = new Address("7100b", "Shoreline ave",
+                "120c", "San Diego", "CA", 92100);
 
         Contact contact = new Contact("John", "Smith","Microhard",
                 6666666666L, "john.smith@gmail.com",

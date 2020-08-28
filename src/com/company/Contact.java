@@ -4,9 +4,20 @@ import java.util.Date;
 
 public class Contact {
 
-    // First name
-    String firstName;
 
+
+    public Contact(String firstName, String lastName, String company, long phoneNumber,
+                   String email, Date date, Address address){
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.company=company;
+        this.phoneNumber=phoneNumber;
+        this.email=email;
+        this.date=date;
+        this.address=address;
+    }
+    // First name
+    public String firstName;
 
     public String getFirstName() {
         return firstName;
@@ -17,7 +28,7 @@ public class Contact {
     }
 
     // Last name
-    String lastName;
+    public String lastName;
 
     public String getLastName() {
         return lastName;
@@ -28,7 +39,7 @@ public class Contact {
     }
 
     // Company
-    String company;
+    public String company;
 
     public String getCompany() {
         return company;
@@ -39,7 +50,7 @@ public class Contact {
     }
 
     // Phone number
-    long phoneNumber;
+    public long phoneNumber;
 
     public long getPhoneNumber() {
         return phoneNumber;
@@ -50,7 +61,7 @@ public class Contact {
     }
 
     // Email
-    String email;
+    public String email;
 
     public String getEmail() {
         return email;
@@ -61,7 +72,7 @@ public class Contact {
     }
 
     // DoB
-    Date date;
+    public Date date;
 
     public Date getDate() {
         return date;
@@ -72,7 +83,7 @@ public class Contact {
     }
 
     // Address
-    Address address;
+    public Address address;
 
     public Address getAddress() {
         return address;
@@ -82,15 +93,6 @@ public class Contact {
         this.address = address;
     }
 
-    Contact(String firstName, String lastName, String company, long phoneNumber,
-            String email, Date date, Address address){
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.company=company;
-        this.phoneNumber=phoneNumber;
-        this.email=email;
-        this.date=date;
-        this.address=address;
-    }
+
 
 }

@@ -3,39 +3,35 @@ package com.company;
 public class Address {
 
     // Building number
-    int buildingNumber;
+    public String buildingNumber;
 
     //Street name
-    String streetName;
+    public String streetName;
 
     //Apartment number
-    int aptNumber;
+    public String aptNumber;
 
     //City
-    String city;
+    public String cityName;
 
     //State
-    String state;
+    public String stateName;
 
     //Zip
-    int zip;
+    public int zipCode;
 
-    Address(int buildingNumber, String streetName, int aptNumber, String city, String state, int zip){
+    Address(String buildingNumber, String streetName, String aptNumber, String cityName, String stateName, int zipCode){
         this.buildingNumber = buildingNumber;
         this.streetName = streetName;
         this.aptNumber = aptNumber;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
+        this.cityName = cityName;
+        this.stateName = stateName;
+        this.zipCode = zipCode;
     }
 
-    public int getBuildingNumber() {
-        return buildingNumber;
-    }
+    public String getBuildingNumber() { return buildingNumber; }
 
-    public void setBuildingNumber(int buildingNumber) {
-        this.buildingNumber = buildingNumber;
-    }
+    public void setBuildingNumber(String buildingNumber) { this.buildingNumber = buildingNumber; }
 
     public String getStreetName() {
         return streetName;
@@ -45,35 +41,34 @@ public class Address {
         this.streetName = streetName;
     }
 
-    public int getAptNumber() {
+    public String getAptNumber() {
         return aptNumber;
     }
 
-    public void setAptNumber(int aptNumber) {
+    public void setAptNumber(String aptNumber) {
         this.aptNumber = aptNumber;
     }
 
-    public String getCity() {
-        return city;
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCityName() { this.cityName = cityName; }
+
+    public String getStateName() {
+        return stateName;
     }
 
-    public String getState() {
-        return state;
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public int getZipCode() {
+        return zipCode;
     }
 
-    public int getZip() {
-        return zip;
-    }
-
-    public void setZip(int zip) {
-        this.zip = zip;
+    public void setZip(int zipCode) {
+        this.zipCode = zipCode;
     }
 }
+
