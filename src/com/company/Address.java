@@ -20,7 +20,7 @@ public class Address {
     //Zip
     public int zipCode;
 
-    Address(String buildingNumber, String streetName, String aptNumber, String cityName, String stateName, int zipCode){
+    public Address(String buildingNumber, String streetName, String aptNumber, String cityName, String stateName, int zipCode){
         this.buildingNumber = buildingNumber;
         this.streetName = streetName;
         this.aptNumber = aptNumber;

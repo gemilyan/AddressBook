@@ -1,20 +1,21 @@
 package com.service;
 
+import com.company.Address;
 import com.company.Contact;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 
 import static com.util.Util.inputText;
 
 public class ContactService {
     private StorageService storageService = new StorageService();
 
-    public void createContact(String firstName, String lastName, long phoneNumber) {
-        Contact contact = new Contact();
-        contact.firstName = firstName;
-        contact.lastName = lastName;
-        contact.phoneNumber = phoneNumber;
-
+    public void createContact(String firstName, String lastName, String company, long phoneNumber,
+                              String email, Date date, Address address) {
+        Contact contact = new Contact(firstName, lastName, company, phoneNumber,
+                email, date, address);
         saveContact(contact);
     }
 
@@ -43,7 +44,10 @@ public class ContactService {
     }
 
     public void inputContact() throws IOException {
-        Contact contact = new Contact();
+        Contact contact = new Contact("John", "Smith","Microhard",
+                6666666666L, "john.smith@gmail.com",
+                new Date(), new Address("7100b", "Shoreline ave",
+                "120-1", "San Diego", "CA", 92100));
         System.out.println("Введите имя             ");
         contact.firstName = inputText();
 

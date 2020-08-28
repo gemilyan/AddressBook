@@ -3,9 +3,6 @@ package com.company;
 import java.util.Date;
 
 public class Contact {
-
-
-
     public Contact(String firstName, String lastName, String company, long phoneNumber,
                    String email, Date date, Address address){
         this.firstName=firstName;
@@ -16,6 +13,7 @@ public class Contact {
         this.date=date;
         this.address=address;
     }
+
     // First name
     public String firstName;
 
