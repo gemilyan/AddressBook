@@ -3,62 +3,59 @@ package com.service;
 import com.company.Contact;
 import com.util.Storage;
 
+import java.util.ArrayList;
+
 public class StorageService {
 
     public void saveContact(Contact contact) {
-        int emptySlotIndex = getFirstEmptySlotIndex();
-
-        Storage.contacts[emptySlotIndex] = contact;
+        Storage.contacts.add(contact);
     }
 
-    public Contact[] getAllContacts() {
+    public ArrayList<Contact> getAllContacts() {
         return Storage.contacts;
     }
 
     public Contact getByFirstName(String firstName) {
-        Contact contact = Storage.contacts[getContactIndexByFirstName(firstName)];
+        Contact contact = null;
+        if(getContactIndexByFirstName(firstName) != -1) {
+            contact = Storage.contacts.get(getContactIndexByFirstName(firstName));
+        }
+
         return contact;
     }
 
     public Contact getByLastName(String lastName) {
-        Contact contact = Storage.contacts[getContactIndexByLastName(lastName)];
+        Contact contact = null;
+        if(getContactIndexByLastName(lastName) != -1) {
+            contact = Storage.contacts.get(getContactIndexByLastName(lastName));
+        }
         return contact;
     }
 
     public Contact getByCityName(String cityName) {
-        Contact contact = Storage.contacts[getContactIndexByCityName(cityName)];
+        Contact contact = null;
+        if(getContactIndexByCityName(cityName) != -1) {
+            contact = Storage.contacts.get(getContactIndexByCityName(cityName));
+        }
         return contact;
     }
 
     public void updateContact(Contact contact) {
-        int index = getContactIndexByFirstName(contact.firstName);
-        Storage.contacts[index] = contact;
+        if(getContactIndexByFirstName(contact.firstName) != -1) {
+            Storage.contacts.add(getContactIndexByFirstName(contact.firstName), contact);
+        }
     }
-
 
     public void deleteContact(Contact contact) {
         int index = getContactIndexByFirstName(contact.firstName);
-        Storage.contacts[index] = null;
-    }
-
-    private int getFirstEmptySlotIndex() {
-        int index = 0;
-
-        for (int i = 0; i < Storage.contacts.length; i++) {
-            if (Storage.contacts[i] == null) {
-                index = i;
-                break;
-            }
-        }
-
-        return index;
+        Storage.contacts.remove(contact);
     }
 
     private int getContactIndexByFirstName(String firstName) {
-        int index = 0;
+        int index = -1;
 
-        for (int i = 0; i < Storage.contacts.length; i++) {
-            if (Storage.contacts[i].firstName.equals(firstName)) {
+        for (int i = 0; i < Storage.contacts.size(); i++) {
+            if (Storage.contacts.get(i).firstName.equals(firstName)) {
                 index = i;
                 break;
             }
@@ -68,10 +65,10 @@ public class StorageService {
     }
 
     private int getContactIndexByLastName(String lastName) {
-        int index = 0;
+        int index = -1;
 
-        for (int i = 0; i < Storage.contacts.length; i++) {
-            if (Storage.contacts[i].lastName.equals(lastName)) {
+        for (int i = 0; i < Storage.contacts.size(); i++) {
+            if (Storage.contacts.get(i).lastName.equals(lastName)) {
                 index = i;
                 break;
             }
@@ -81,10 +78,10 @@ public class StorageService {
     }
 
     private int getContactIndexByCityName(String cityName) {
-        int index = 0;
+        int index = -1;
 
-        for (int i = 0; i < Storage.contacts.length; i++) {
-            if (Storage.contacts[i].getAddress().cityName.equals(cityName)) {
+        for (int i = 0; i < Storage.contacts.size(); i++) {
+            if (Storage.contacts.get(i).getAddress().cityName.equals(cityName)) {
                 index = i;
                 break;
             }

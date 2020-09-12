@@ -34,11 +34,14 @@ public class AddressBook {
 
         while (command.equals("start") || command.equals("continue")) {
 
-            System.out.println("Подсказка по командам ==================================================================");
-            System.out.println("enter contact           - ввод нового контакта ==========================================");
-            System.out.println("print contacts          - вывод в консоль всех контактов ================================");
-            System.out.println("search by name          - поиск по имени контакта =======================================");
-            System.out.println("=========================================================================================");
+            System.out.println("Подсказка по командам ================================================================");
+            System.out.println("enter contact           - ввод нового контакта =======================================");
+            System.out.println("delete contact          - удаление контакта ==========================================");
+            System.out.println("search by name          - поиск по имени контакта ====================================");
+            System.out.println("search by last name     - поиск по фамилии контакта ==================================");
+            System.out.println("search by city name     - поиск по городу ============================================");
+            System.out.println("print all contacts      - вывод в консоль всех контактов==============================");
+            System.out.println("======================================================================================");
             System.out.println("Введите команду");
 
             command = inputText();
@@ -52,11 +55,12 @@ public class AddressBook {
                     System.out.println("Введите фамилию");
                     String lastName = inputText();
                     Contact contactToDelete = contactService.getContactByLastName(lastName);
-                    contactService.deleteContact(contactToDelete);
-                }
-                break;
-                case "print contacts": {
-                    contactService.printContacts(contactService.getAllContacts());
+                    if(contactToDelete != null) {
+                        contactService.deleteContact(contactToDelete);
+                    }
+                    else {
+                        System.out.println("Contact not found");
+                    }
                 }
                 break;
                 case "search by name": {
@@ -64,15 +68,25 @@ public class AddressBook {
                     String firstName = inputText();
                     Contact contact = contactService.getContactByFirstName(firstName);
 
-                    contactService.printContact(contact);
+                    if(contact != null) {
+                        contactService.printContact(contact);
+                    }
+                    else {
+                        System.out.println("Contact not found");
+                    }
                 }
                 break;
-                case "search by lastName": {
+                case "search by last name": {
                     System.out.println("Введите фамилию");
                     String lastName = inputText();
                     Contact contact = contactService.getContactByLastName(lastName);
 
-                    contactService.printContact(contact);
+                    if(contact != null) {
+                        contactService.printContact(contact);
+                    }
+                    else {
+                        System.out.println("Contact not found");
+                    }
                 }
                 break;
                 case "search by city name": {
@@ -80,7 +94,13 @@ public class AddressBook {
                     String cityName = inputText();
                     Contact contact = contactService.getContactByCityName(cityName);
 
-                    contactService.printContact(contact);
+                    if(contact != null) {
+                        contactService.printContact(contact);
+                    }
+
+                    else {
+                        System.out.println("Contact not found");
+                    }
                 }
                 break;
                 case "print all contacts": {

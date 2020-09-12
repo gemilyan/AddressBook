@@ -4,6 +4,7 @@ import com.company.Address;
 import com.company.Contact;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -35,7 +36,7 @@ public class ContactService {
         return storageService.getByCityName(cityName);
     }
 
-    public Contact[] getAllContacts() {
+    public ArrayList<Contact> getAllContacts() {
         return storageService.getAllContacts();
     }
 
@@ -98,7 +99,7 @@ public class ContactService {
         System.out.println("=========================================================================================");
     }
 
-    public void printContacts(Contact[] contacts) {
+    public void printContacts(ArrayList<Contact> contacts) {
         for (Contact contact : contacts) {
             if (contact != null) {
                 printContact(contact);
