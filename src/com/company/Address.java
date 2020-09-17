@@ -3,22 +3,22 @@ package com.company;
 public class Address {
 
     // Building number
-    public String buildingNumber;
+    private String buildingNumber;
 
     //Street name
-    public String streetName;
+    private String streetName;
 
     //Apartment number
-    public String aptNumber;
+    private String aptNumber;
 
     //City
-    public String cityName;
+    private String cityName;
 
     //State
-    public String stateName;
+    private String stateName;
 
     //Zip
-    public int zipCode;
+    private int zipCode;
 
     public Address(String buildingNumber, String streetName, String aptNumber, String cityName, String stateName, int zipCode){
         this.buildingNumber = buildingNumber;
@@ -29,9 +29,13 @@ public class Address {
         this.zipCode = zipCode;
     }
 
-    public String getBuildingNumber() { return buildingNumber; }
+    public String getBuildingNumber() {
+        return buildingNumber;
+    }
 
-    public void setBuildingNumber(String buildingNumber) { this.buildingNumber = buildingNumber; }
+    public void setBuildingNumber(String buildingNumber) {
+        this.buildingNumber = buildingNumber;
+    }
 
     public String getStreetName() {
         return streetName;
@@ -53,7 +57,9 @@ public class Address {
         return cityName;
     }
 
-    public void setCityName() { this.cityName = cityName; }
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
 
     public String getStateName() {
         return stateName;
@@ -67,7 +73,7 @@ public class Address {
         return zipCode;
     }
 
-    public void setZip(int zipCode) {
+    public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }
 }

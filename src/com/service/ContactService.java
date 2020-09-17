@@ -5,7 +5,6 @@ import com.company.Contact;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 import static com.util.Util.inputText;
@@ -13,10 +12,9 @@ import static com.util.Util.inputText;
 public class ContactService {
     private StorageService storageService = new StorageService();
 
-    public void createContact(String firstName, String lastName, String company, long phoneNumber,
-                              String email, Date date, Address address) {
-        Contact contact = new Contact(firstName, lastName, company, phoneNumber,
-                email, date, address);
+    public void createContact(int id, String firstName, String lastName, String company, long phoneNumber, String email, Date date, Address address) {
+        Contact contact = new Contact(id, firstName, lastName, company, phoneNumber, email, date, address);
+
         saveContact(contact);
     }
 
@@ -49,46 +47,44 @@ public class ContactService {
     }
 
     public void inputContact() throws IOException {
-        Contact contact = new Contact("John", "Smith","Microhard",
-                6666666666L, "john.smith@gmail.com",
-                new Date(), new Address("7100b", "Shoreline ave",
-                "120-1", "San Diego", "CA", 92100));
+        Contact contact = new Contact();
+
         System.out.println("Введите имя             ");
-        contact.firstName = inputText();
+        contact.setFirstName(inputText());
 
         System.out.println("Введите фамилию         ");
-        contact.lastName = inputText();
+        contact.setLastName(inputText());
 
         System.out.println("Введите номер телефона  ");
-        contact.phoneNumber = Long.parseLong(inputText());
+        contact.setPhoneNumber(Long.parseLong(inputText()));
 
         System.out.println("Адрес-------------------");
         System.out.println("Введите номер дома      ");
-        String buildingNumber = inputText();
+        contact.getAddress().setBuildingNumber(inputText());
 
         System.out.println("Введите улицу           ");
-        String streetName = inputText();
+        contact.getAddress().setStreetName(inputText());
 
         System.out.println("Введите номер квартиры  ");
-        String aptNumber = inputText();
+        contact.getAddress().setAptNumber(inputText());
 
         System.out.println("Введите город           ");
-        String cityName = inputText();
+        contact.getAddress().setCityName(inputText());
 
         System.out.println("Введите штат            ");
-        String stateName = inputText();
+        contact.getAddress().setStateName(inputText());
 
         System.out.println("Введите зип-код         ");
-        int zipCode = Integer.parseInt(inputText());
+        contact.getAddress().setZipCode(Integer.parseInt(inputText()));
 
         saveContact(contact);
     }
 
     public void printContact(Contact contact) {
         System.out.println("=========================================================================================");
-        System.out.println("Имя                     " + contact.firstName);
-        System.out.println("Фамилия                 " + contact.lastName);
-        System.out.println("Номер телефона          " + contact.phoneNumber);
+        System.out.println("Имя                     " + contact.getFirstName());
+        System.out.println("Фамилия                 " + contact.getLastName());
+        System.out.println("Номер телефона          " + contact.getPhoneNumber());
         System.out.println("Адрес ===================================================================================");
         System.out.println("Номер дома              " + contact.getAddress().getBuildingNumber());
         System.out.println("Улица                   " + contact.getAddress().getStreetName());

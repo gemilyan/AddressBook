@@ -3,8 +3,23 @@ package com.company;
 import java.util.Date;
 
 public class Contact {
-    public Contact(String firstName, String lastName, String company, long phoneNumber,
+
+    private int id;
+    private String firstName;
+    private String lastName;
+    private String company;
+    private long phoneNumber;
+    private String email;
+    private Date date;
+    private Address address;
+
+    public Contact() {
+
+    }
+
+    public Contact(int id, String firstName, String lastName, String company, long phoneNumber,
                    String email, Date date, Address address){
+        this.id = id;
         this.firstName=firstName;
         this.lastName=lastName;
         this.company=company;
@@ -14,8 +29,13 @@ public class Contact {
         this.address=address;
     }
 
-    // First name
-    public String firstName;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -25,9 +45,6 @@ public class Contact {
         this.firstName = firstName;
     }
 
-    // Last name
-    public String lastName;
-
     public String getLastName() {
         return lastName;
     }
@@ -35,9 +52,6 @@ public class Contact {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    // Company
-    public String company;
 
     public String getCompany() {
         return company;
@@ -47,9 +61,6 @@ public class Contact {
         this.company = company;
     }
 
-    // Phone number
-    public long phoneNumber;
-
     public long getPhoneNumber() {
         return phoneNumber;
     }
@@ -57,9 +68,6 @@ public class Contact {
     public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-    // Email
-    public String email;
 
     public String getEmail() {
         return email;
@@ -69,9 +77,6 @@ public class Contact {
         this.email = email;
     }
 
-    // DoB
-    public Date date;
-
     public Date getDate() {
         return date;
     }
@@ -80,9 +85,6 @@ public class Contact {
         this.date = date;
     }
 
-    // Address
-    public Address address;
-
     public Address getAddress() {
         return address;
     }
@@ -90,7 +92,4 @@ public class Contact {
     public void setAddress(Address address) {
         this.address = address;
     }
-
-
-
 }
