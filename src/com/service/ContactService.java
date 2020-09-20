@@ -2,6 +2,7 @@ package com.service;
 
 import com.company.Address;
 import com.company.Contact;
+import com.util.Storage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,9 +13,9 @@ import static com.util.Util.inputText;
 public class ContactService {
     private StorageService storageService = new StorageService();
 
-    public void createContact(int id, String firstName, String lastName, String company, long phoneNumber, String email, Date date, Address address) {
+    public void createContact(String firstName, String lastName, String company, long phoneNumber, String email, Date date, Address address) {
+        int id = (int) (Math.random() * 10000);
         Contact contact = new Contact(id, firstName, lastName, company, phoneNumber, email, date, address);
-
         saveContact(contact);
     }
 
@@ -38,8 +39,13 @@ public class ContactService {
         return storageService.getAllContacts();
     }
 
-    public void updateContact(Contact contact) {
-        storageService.updateContact(contact);
+    public void sortContacts() {
+        int len_arr = Storage.contacts.size();
+        storageService.sortContacts(len_arr);
+    }
+
+    public void updateContact(Contact contact, int i) {
+        storageService.updateContact(contact, i);
     }
 
     public void deleteContact(Contact contact) {
@@ -82,6 +88,7 @@ public class ContactService {
 
     public void printContact(Contact contact) {
         System.out.println("=========================================================================================");
+        System.out.println("Id                      " + contact.getId());
         System.out.println("Имя                     " + contact.getFirstName());
         System.out.println("Фамилия                 " + contact.getLastName());
         System.out.println("Номер телефона          " + contact.getPhoneNumber());

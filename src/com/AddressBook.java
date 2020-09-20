@@ -40,6 +40,7 @@ public class AddressBook {
             System.out.println("search by name          - поиск по имени контакта ====================================");
             System.out.println("search by last name     - поиск по фамилии контакта ==================================");
             System.out.println("search by city name     - поиск по городу ============================================");
+            System.out.println("sort by id              - сортирожка по Id ============================================");
             System.out.println("print all contacts      - вывод в консоль всех контактов==============================");
             System.out.println("======================================================================================");
             System.out.println("Введите команду");
@@ -101,6 +102,11 @@ public class AddressBook {
                     else {
                         System.out.println("Contact not found");
                     }
+                }
+                break;
+                case "sort by id": {
+                    contactService.sortContacts();
+                    System.out.println("Контакты отсортированы");
                 }
                 break;
                 case "print all contacts": {

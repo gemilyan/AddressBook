@@ -13,13 +13,13 @@ public class Util {
     private final ContactService contactService = new ContactService();
 
     public void initApp() {
-        contactService.createContact(1, "John1", "Smith1", "Microhard1",
+        contactService.createContact("John1", "Smith1", "Microhard1",
                 6666666666L, "john1.smith@gmail.com", new Date(), new Address("7100b", "Shoreline ave",
                         "120-1", "San Diego", "CA", 92100));
-        contactService.createContact(2, "John2", "Smith2", "Microhard2",
+        contactService.createContact("John2", "Smith2", "Microhard2",
                 6666666666L, "john2.smith@gmail.com", new Date(), new Address("7100b", "Shoreline ave",
                         "120-2", "San Diego", "CA", 92100));
-        contactService.createContact(3, "John3", "Smith3", "Microhard3",
+        contactService.createContact("John3", "Smith3", "Microhard3",
                 6666666666L, "john3.smith@gmail.com", new Date(), new Address("7100b", "Shoreline ave",
                         "120-3", "San Diego", "CA", 92100));
     }

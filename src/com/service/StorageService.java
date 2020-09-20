@@ -4,10 +4,9 @@ import com.company.Contact;
 import com.util.Storage;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class StorageService {
-
-    // TODO: 9/17/20 Отрефакторить методы как в референсе
 
     public void saveContact(Contact contact) {
         Storage.contacts.add(contact);
@@ -18,35 +17,34 @@ public class StorageService {
     }
 
     public Contact getByFirstName(String firstName) {
-        Contact contact = null;
-
-        if (getContactIndexByFirstName(firstName) != -1) {
-            contact = Storage.contacts.get(getContactIndexByFirstName(firstName));
+        for (Contact contact : Storage.getContacts()) {
+            if (contact.getFirstName().equals(firstName)) {
+                return contact;
+            }
         }
-
-        return contact;
+        return null;
     }
 
     public Contact getByLastName(String lastName) {
-        Contact contact = null;
-        if (getContactIndexByLastName(lastName) != -1) {
-            contact = Storage.contacts.get(getContactIndexByLastName(lastName));
+        for (Contact contact : Storage.getContacts()) {
+            if (contact.getLastName().equals(lastName)) {
+                return contact;
+            }
         }
-        return contact;
+        return null;
     }
 
     public Contact getByCityName(String cityName) {
-        Contact contact = null;
-        if (getContactIndexByCityName(cityName) != -1) {
-            contact = Storage.contacts.get(getContactIndexByCityName(cityName));
+        for (Contact contact : Storage.getContacts()) {
+            if (contact.getAddress().getCityName().equals(cityName)) {
+                return contact;
+            }
         }
-        return contact;
+        return null;
     }
 
-    public void updateContact(Contact contact) {
-        if (getContactIndexByFirstName(contact.getFirstName()) != -1) {
-            Storage.contacts.add(getContactIndexByFirstName(contact.getFirstName()), contact);
-        }
+    public void updateContact(Contact contact, int id) {
+        Storage.contacts.set(id, contact);
     }
 
     public void deleteContact(Contact contact) {
@@ -63,7 +61,6 @@ public class StorageService {
                 break;
             }
         }
-
         return index;
     }
 
@@ -76,7 +73,6 @@ public class StorageService {
                 break;
             }
         }
-
         return index;
     }
 
@@ -89,7 +85,19 @@ public class StorageService {
                 break;
             }
         }
-
         return index;
+    }
+
+    public void sortContacts(int len_arr){
+        ArrayList<Contact> contacts = Storage.contacts;
+        if (len_arr == 1)
+            return;
+        for (int i=0; i<len_arr-1; i++)
+            if (contacts.get(i).getId() > contacts.get(i+1).getId()){
+                Contact temp = contacts.get(i);
+                updateContact(contacts.get(i+1), i);
+                updateContact(temp, i+1);
+            }
+        sortContacts(len_arr-1);
     }
 }
