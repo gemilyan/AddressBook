@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static com.vahe.util.Util.inputText;
+import static main.java.com.vahe.util.Util.inputText;
 
 public class ContactService {
     private StorageService storageService = new StorageService();
