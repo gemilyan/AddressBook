@@ -1,7 +1,5 @@
 package com.vahe.service;
 
-import com.vahe.Storage;
-import com.vahe.StorageService;
 import com.vahe.entity.Address;
 import com.vahe.entity.Contact;
 import com.vahe.util.Storage;
@@ -10,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static main.java.com.vahe.util.Util.inputText;
+import static com.vahe.util.Util.inputText;
 
 public class ContactService {
     private StorageService storageService = new StorageService();

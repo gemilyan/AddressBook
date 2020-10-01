@@ -2,11 +2,11 @@ package com.vahe;
 
 import com.vahe.entity.Contact;
 import com.vahe.service.ContactService;
-import main.java.com.vahe.util.Util;
+import com.vahe.util.Util;
 
 import java.io.IOException;
 
-import static main.java.com.vahe.util.Util.inputText;
+import static com.vahe.util.Util.inputText;
 
 public class AddressBook {
 

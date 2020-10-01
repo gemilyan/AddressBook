@@ -1,4 +1,4 @@
-package main.java.com.vahe.util;
+package com.vahe.util;
 
 import com.vahe.entity.Address;
 import com.vahe.service.ContactService;
