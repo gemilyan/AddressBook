@@ -47,10 +47,9 @@ public class AddressBook {
                     System.out.println("Введите фамилию");
                     String lastName = inputText();
                     Contact contactToDelete = contactService.getContactByLastName(lastName);
-                    if(contactToDelete != null) {
+                    if (contactToDelete != null) {
                         contactService.deleteContact(contactToDelete);
-                    }
-                    else {
+                    } else {
                         System.out.println("Contact not found");
                     }
                 }
@@ -60,10 +59,9 @@ public class AddressBook {
                     String firstName = inputText();
                     Contact contact = contactService.getContactByFirstName(firstName);
 
-                    if(contact != null) {
+                    if (contact != null) {
                         contactService.printContact(contact);
-                    }
-                    else {
+                    } else {
                         System.out.println("Contact not found");
                     }
                 }
@@ -73,10 +71,9 @@ public class AddressBook {
                     String lastName = inputText();
                     Contact contact = contactService.getContactByLastName(lastName);
 
-                    if(contact != null) {
+                    if (contact != null) {
                         contactService.printContact(contact);
-                    }
-                    else {
+                    } else {
                         System.out.println("Contact not found");
                     }
                 }
@@ -86,11 +83,9 @@ public class AddressBook {
                     String cityName = inputText();
                     Contact contact = contactService.getContactByCityName(cityName);
 
-                    if(contact != null) {
+                    if (contact != null) {
                         contactService.printContact(contact);
-                    }
-
-                    else {
+                    } else {
                         System.out.println("Contact not found");
                     }
                 }
