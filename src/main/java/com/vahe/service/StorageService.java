@@ -1,10 +1,9 @@
-package com.service;
+package com.vahe.service;
 
-import com.company.Contact;
-import com.util.Storage;
+import com.vahe.entity.Contact;
+import com.vahe.util.Storage;
 
 import java.util.ArrayList;
-import java.util.Stack;
 
 public class StorageService {
 

@@ -1,6 +1,6 @@
-package com.util;
+package com.vahe.util;
 
-import com.company.Contact;
+import com.vahe.entity.Contact;
 
 import java.util.ArrayList;
 

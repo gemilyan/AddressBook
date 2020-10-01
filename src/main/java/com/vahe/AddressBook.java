@@ -1,26 +1,19 @@
-package com;
+package com.vahe;
 
-import com.company.Contact;
-import com.service.ContactService;
-import com.util.Util;
+import com.vahe.entity.Contact;
+import com.vahe.service.ContactService;
+import com.vahe.util.Util;
 
 import java.io.IOException;
 
-import static com.util.Util.inputText;
+import static com.vahe.util.Util.inputText;
 
 public class AddressBook {
 
     private static ContactService contactService = new ContactService();
     private static Util util = new Util();
 
-    /*
-     * NOTE : =====================================================================================================
-     * Задача   -   написать программу, которая будет решать проблему из реальной жизни.
-     * Level 3  -   провести анализ предметной области
-     *          -   записать сущности предметной области как классы программы
-     *          -   записать поля классов
-     * ============================================================================================================
-     */
+
 
     public static void main(String[] args) throws IOException {
 

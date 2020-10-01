@@ -1,7 +1,7 @@
-package com.util;
+package com.vahe.util;
 
-import com.company.Address;
-import com.service.ContactService;
+import com.vahe.entity.Address;
+import com.vahe.service.ContactService;
 
 import java.io.BufferedReader;
 import java.io.IOException;

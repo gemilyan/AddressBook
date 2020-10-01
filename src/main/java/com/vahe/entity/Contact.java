@@ -1,4 +1,4 @@
-package com.company;
+package com.vahe.entity;
 
 import java.util.Date;
 
