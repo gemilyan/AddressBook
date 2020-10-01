@@ -13,8 +13,6 @@ public class AddressBook {
     private static ContactService contactService = new ContactService();
     private static Util util = new Util();
 
-
-
     public static void main(String[] args) throws IOException {
 
         util.initApp();
