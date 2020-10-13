@@ -4,14 +4,13 @@ import com.vahe.entity.Address;
 import com.vahe.entity.Contact;
 import com.vahe.util.Storage;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ContactServiceTest {
 
@@ -45,52 +44,52 @@ class ContactServiceTest {
 
     @Test
     void createContact_ShouldBeCreated() {
-        Assertions.assertTrue(Storage.getContacts().isEmpty());
-        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(),address);
-        Assertions.assertFalse(Storage.getContacts().isEmpty());
+        assertTrue(Storage.getContacts().isEmpty());
+        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(), address);
+        assertFalse(Storage.getContacts().isEmpty());
     }
 
     @Test
     void getContactByFirstName_ShouldFindContactByFirstName() {
-        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(),address);
+        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(), address);
         Contact contact = contactService.getContactByFirstName("TestFirstName1");
-        Assertions.assertTrue(contact.getFirstName() == "TestFirstName1");
+        assertEquals("TestFirstName1", contact.getFirstName());
     }
 
     @Test
     void getContactByLastName_ShouldFindContactByLastName() {
-        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(),address);
+        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(), address);
         Contact contact = contactService.getContactByLastName("TestLastName1");
-        Assertions.assertTrue(contact.getLastName() == "TestLastName1");
+        assertEquals("TestLastName1", contact.getLastName());
     }
 
     @Test
     void getContactByCityName_ShouldFindContactByCityName() {
-        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(),address);
+        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(), address);
         Contact contact = contactService.getContactByCityName("TestCityName1");
-        Assertions.assertTrue(address.getCityName() == "TestCityName1");
+        assertEquals("TestCityName1", address.getCityName());
     }
 
     @Test
     void getAllContacts() {
-        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(),address);
+        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(), address);
         contactService.getAllContacts();
-        Assertions.assertFalse(Storage.getContacts().isEmpty());
+        assertFalse(Storage.getContacts().isEmpty());
     }
 
     @Test
     void sortContacts() {
-        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(),address);
-        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(),address);
+        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(), address);
+        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(), address);
         contactService.sortContacts();
         ArrayList<Contact> contacts = contactService.getAllContacts();
         assertTrue(contacts.get(0).getId() <= contacts.get(1).getId());
-        tearDown();
+        //tearDown();
     }
 
     @Test
     void deleteContact_ContactShouldBeDeleted() {
-        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(),address);
+        contactService.createContact(firstName, lastName, company, phoneNumber, email, new Date(), address);
         Contact contact = contactService.getContactByLastName("TestLastName1");
         contactService.deleteContact(contact);
         assertTrue(contactService.getAllContacts().isEmpty());
@@ -98,9 +97,6 @@ class ContactServiceTest {
 
     @AfterEach
     void tearDown() {
-        ArrayList<Contact> contacts = contactService.getAllContacts();
-        for (int i = 0; i < contacts.size(); i++){
-            contactService.deleteContact(contacts.get(i));
-        }
+        contactService.getAllContacts().clear();
     }
 }
